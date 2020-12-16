@@ -36,10 +36,10 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
-    public UserResponseDto get(Long id) {
+    public User get(Long id) {
         User user = userRepository.findById(id)
                 .orElseThrow(() -> new RuntimeException("Can't find user by id: " + id));
-        return userMapper.mapToResponseDto(user);
+        return user;
     }
 
     @Override
