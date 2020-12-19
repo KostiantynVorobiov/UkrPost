@@ -2,10 +2,9 @@ package com.products.test.controller;
 
 import com.products.test.model.dto.UserRequestDto;
 import com.products.test.service.UserService;
+import javax.annotation.PostConstruct;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
-
-import javax.annotation.PostConstruct;
 
 @Component
 public class DataInject {
@@ -19,7 +18,7 @@ public class DataInject {
     @PostConstruct
     public void initData() {
         System.out.println("Added users");
-      //  saveUsers();
+        //  saveUsers();
     }
 
     private void saveUsers() {

@@ -3,7 +3,6 @@ package com.products.test.service;
 import com.products.test.model.Product;
 import com.products.test.model.dto.ProductRequestDto;
 import com.products.test.model.dto.ProductResponseDto;
-
 import java.util.List;
 
 public interface ProductService {
@@ -12,7 +11,7 @@ public interface ProductService {
 
     List<ProductResponseDto> getAll();
 
-    List<ProductResponseDto> findByCategory (String category);
+    List<ProductResponseDto> findByCategory(String category);
 
     Product get(Long id);
 

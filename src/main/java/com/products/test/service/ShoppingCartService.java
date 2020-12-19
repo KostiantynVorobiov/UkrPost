@@ -1,14 +1,14 @@
 package com.products.test.service;
 
-import com.products.test.model.Product;
 import com.products.test.model.ShoppingCart;
-import com.products.test.model.User;
-
-import java.util.Optional;
 
 public interface ShoppingCartService {
 
-    Optional<ShoppingCart> getShoppingCartByUserId(Long userId);
+    ShoppingCart create(ShoppingCart shoppingCart);
 
-    ShoppingCart addProduct(Long shoppingCartId, Long productId);
+    ShoppingCart getByUserId(Long userId);
+
+    String buyProducts(Long shoppingCartId);
+
+    ShoppingCart addProduct(Long userId, Long productId);
 }

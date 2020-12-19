@@ -3,7 +3,6 @@ package com.products.test.service;
 import com.products.test.model.User;
 import com.products.test.model.dto.UserRequestDto;
 import com.products.test.model.dto.UserResponseDto;
-
 import java.util.List;
 
 public interface UserService {
@@ -14,9 +13,9 @@ public interface UserService {
 
     User get(Long id);
 
-    void update(Long id, UserRequestDto userRequestDto);
+    void update(Long id, User user);
 
     void delete(Long id);
 
-    User addMoney(Long id, Integer amount);
+    User addMoney(Long id, Double amount);
 }

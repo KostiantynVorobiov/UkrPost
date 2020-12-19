@@ -8,11 +8,10 @@ import com.products.test.repository.DiscountRepository;
 import com.products.test.repository.ProductRepository;
 import com.products.test.service.ProductService;
 import com.products.test.service.mapper.ProductMapper;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Service;
-
 import java.util.List;
 import java.util.stream.Collectors;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 @Service
 public class ProductServiceImpl implements ProductService {
@@ -21,7 +20,9 @@ public class ProductServiceImpl implements ProductService {
     private final DiscountRepository discountRepository;
 
     @Autowired
-    public ProductServiceImpl(ProductRepository productRepository, ProductMapper productMapper, DiscountRepository discountRepository) {
+    public ProductServiceImpl(ProductRepository productRepository,
+                              ProductMapper productMapper,
+                              DiscountRepository discountRepository) {
         this.productRepository = productRepository;
         this.productMapper = productMapper;
         this.discountRepository = discountRepository;
@@ -31,7 +32,7 @@ public class ProductServiceImpl implements ProductService {
     public Product add(ProductRequestDto productRequestDto) {
         Product product = productMapper.mapToModel(productRequestDto);
         Discount discount = new Discount();
-        if (product.getDiscount().getAmountOfDiscount() == 0){
+        if (product.getDiscount().getAmountOfDiscount() == 0) {
             discount.setAmountOfDiscount(0);
         }
         discount.setAmountOfDiscount(product.getDiscount().getAmountOfDiscount());
@@ -56,7 +57,9 @@ public class ProductServiceImpl implements ProductService {
 
     @Override
     public Product get(Long id) {
-        return productRepository.getOne(id);
+        Product product = productRepository.findById(id)
+                .orElseThrow(() -> new RuntimeException("Can't find product by id: " + id));
+        return product;
     }
 
     @Override
