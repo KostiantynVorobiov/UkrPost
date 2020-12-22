@@ -1,0 +1,20 @@
+2.1 Необходимо получить список повторяющихся строк.
+SELECT *, COUNT(Last_Name) FROM employees
+GROUP BY Last_Name
+HAVING count(*)>1
+ORDER BY count(*);
+
+2.2 Потом удалить повторяющиеся строки, оставив только по одной уникальной строке
+DELETE e1 FROM employees e1
+INNER JOIN employees e2
+WHERE e1.id < e2.id AND e1.Last_Name = e2.Last_Name;
+
+3.1 Получить всех сотрудников, независимо от того, имеют ли они соответствия отдела в
+    департаменте
+SELECT * FROM employees e
+LEFT JOIN departments d ON e.Department_id = d.Department_id;
+
+3.2 Вывести среднюю зарплату по отделам.
+SELECT Department_name, AVG(Salery) AS AVG_Salery FROM employees e
+JOIN departments d ON d.Departments_id = e.Department_id
+GROUP BY Department_Name;
