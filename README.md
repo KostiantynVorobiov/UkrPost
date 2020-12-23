@@ -1,4 +1,4 @@
- #REST
+ REST
 
 #### Технології: 
 Spring Boot, JpaRepository, H2, REST
