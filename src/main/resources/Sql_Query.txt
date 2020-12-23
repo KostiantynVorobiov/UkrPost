@@ -18,3 +18,9 @@ LEFT JOIN departments d ON e.Department_id = d.Department_id;
 SELECT Department_name, AVG(Salery) AS AVG_Salery FROM employees e
 JOIN departments d ON d.Departments_id = e.Department_id
 GROUP BY Department_Name;
+
+4
+
+5.1 В этом случае выдаст ошибку так как эта таблица и ее значения связани с таблицей employyes. Что бы удалить этот департаммент,
+то сначала нужно удалить все строки где етот департамент присутствует в таблице employyes.
+5.2 Тоже выдаст ошибку, потому что как я понял то запрос Delete удаляет всю строку, а не отдельные столбцы.
