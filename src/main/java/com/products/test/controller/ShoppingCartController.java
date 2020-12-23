@@ -16,14 +16,11 @@ import org.springframework.web.bind.annotation.RestController;
 @RequestMapping("/carts")
 public class ShoppingCartController {
     private final ShoppingCartService shoppingCartService;
-    private final UserService userService;
-
     private final ShoppingCartMapper cartMapper;
 
     public ShoppingCartController(ShoppingCartService shoppingCartService,
-                                  UserService userService, ShoppingCartMapper cartMapper) {
+                                  ShoppingCartMapper cartMapper) {
         this.shoppingCartService = shoppingCartService;
-        this.userService = userService;
         this.cartMapper = cartMapper;
     }
 
@@ -33,10 +30,9 @@ public class ShoppingCartController {
         return cartMapper.mapToDto(shoppingCart);
     }
 
-    @PostMapping("/add")
+    @PostMapping("/addProduct")
     public ShoppingCart addProduct(@RequestParam Long userId, @RequestParam Long productId) {
-        ShoppingCart shoppingCart = shoppingCartService.addProduct(userId, productId);
-        return shoppingCart;
+        return shoppingCartService.addProduct(userId, productId);
     }
 
     @GetMapping("/pay/{cartId}")

@@ -11,7 +11,8 @@ public class UserMapper {
     public User mapToModel(UserRequestDto userRequestDto) {
         return User.builder()
                 .email(userRequestDto.getEmail())
-                .password(userRequestDto.getPassword())
+                .firstName(userRequestDto.getFirstName())
+                .lastName(userRequestDto.getLastName())
                 .moneyAccount(userRequestDto.getMoneyAccount())
                 .build();
     }
@@ -20,7 +21,8 @@ public class UserMapper {
         return UserResponseDto.builder()
                 .id(user.getId())
                 .email(user.getEmail())
-                .password(user.getPassword())
+                .firstName(user.getFirstName())
+                .lastName(user.getLastName())
                 .moneyAccount(user.getMoneyAccount())
                 .build();
     }

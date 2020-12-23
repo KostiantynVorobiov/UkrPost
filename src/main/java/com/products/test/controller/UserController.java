@@ -27,7 +27,7 @@ public class UserController {
         this.userMapper = userMapper;
     }
 
-    @PostMapping
+    @PostMapping("/create_user")
     public User create(@RequestBody UserRequestDto userRequestDto) {
         return userService.add(userRequestDto);
     }
@@ -37,7 +37,7 @@ public class UserController {
         return userService.getAll();
     }
 
-    @PutMapping("/{id}/{summa}")
+    @PutMapping("/add_money/{id}/{summa}")
     public void addAmount(@PathVariable Long id, @PathVariable Double summa) {
         userService.addMoney(id, summa);
     }

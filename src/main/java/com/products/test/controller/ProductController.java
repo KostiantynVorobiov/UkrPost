@@ -5,6 +5,8 @@ import com.products.test.model.dto.ProductRequestDto;
 import com.products.test.model.dto.ProductResponseDto;
 import com.products.test.service.ProductService;
 import java.util.List;
+import java.util.Optional;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -31,8 +33,16 @@ public class ProductController {
         return productService.add(productRequestDto);
     }
 
+//    @GetMapping
+//    public List<ProductResponseDto> getAll(@RequestParam String category) {
+//        if (category != null && !category.isEmpty()) {
+//            return productService.findByCategory(category);
+//        }
+//        return productService.getAll();
+//    }
+
     @GetMapping
-    public List<ProductResponseDto> getAll(@RequestParam String category) {
+    public List<ProductResponseDto> getAll(@RequestParam(required = false) String category) {
         if (category != null && !category.isEmpty()) {
             return productService.findByCategory(category);
         }

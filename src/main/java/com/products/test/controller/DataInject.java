@@ -24,17 +24,17 @@ public class DataInject {
     private void saveUsers() {
         UserRequestDto bob = new UserRequestDto();
         bob.setEmail("bob@i.ua");
-        bob.setPassword("11111");
+        bob.setFirstName("11111");
         bob.setMoneyAccount(150);
         userService.add(bob);
         UserRequestDto alice = new UserRequestDto();
         alice.setEmail("alice@i.ua");
-        alice.setPassword("22222");
+        alice.setFirstName("22222");
         alice.setMoneyAccount(250);
         userService.add(alice);
         UserRequestDto tom = new UserRequestDto();
         tom.setEmail("tom@i.ua");
-        tom.setPassword("33333");
+        tom.setFirstName("33333");
         tom.setMoneyAccount(350);
         userService.add(tom);
     }
