@@ -19,7 +19,11 @@ SELECT Department_name, AVG(Salery) AS AVG_Salery FROM employees e
 JOIN departments d ON d.Departments_id = e.Department_id
 GROUP BY Department_Name;
 
-4
+4 Надо выбрать идентификатор отдела (DEPT_ID), минимальный размер заработной платы, а также максимальную зарплату,
+выплаченную в этом отделе, в диапазоне > 5000 и <15000.
+SELECT Dep_id, min(Salery) AS min, max(salery) AS max FROM employees
+WHERE Salery BETWEEN 2000 AND 7000
+GROUP BY Dep_id;
 
 5.1 В этом случае выдаст ошибку так как эта таблица и ее значения связани с таблицей employyes. Что бы удалить этот департаммент,
 то сначала нужно удалить все строки где етот департамент присутствует в таблице employyes.
