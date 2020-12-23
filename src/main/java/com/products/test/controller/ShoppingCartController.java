@@ -3,7 +3,6 @@ package com.products.test.controller;
 import com.products.test.model.ShoppingCart;
 import com.products.test.model.dto.ShoppingCartResponseDto;
 import com.products.test.service.ShoppingCartService;
-import com.products.test.service.UserService;
 import com.products.test.service.mapper.ShoppingCartMapper;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
